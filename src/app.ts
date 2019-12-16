@@ -3,7 +3,7 @@
  * Author: Remi Kamal
  */
 
- //External package imports.
+//External package imports.
 import express from "express";
 import helmet from "helmet";
 import bodyParser from "body-parser";
@@ -12,7 +12,7 @@ import * as path from "path";
 
 //Internal function imports.
 import { createAndReturnPSNRouter } from "./server-routes/";
-import { createAndReturnPromise } from "./common-functions";
+import { createAndReturnPromise, connectToPSNSQL } from "./common-functions";
 
 /**
  * PSNApp which instantiates the infrastructure of the application, including server, and relevant endpoints.

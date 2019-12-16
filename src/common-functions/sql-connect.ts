@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
 /**
- * Connects to MongoDB through Mongoose.
+ * Connects to SQL.
  */
+export async function connectToPSNSQL() {
+
+}

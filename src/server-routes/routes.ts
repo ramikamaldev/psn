@@ -1,8 +1,5 @@
 import express from "express";
 import * as cryptoRandomString from "crypto-random-string";
-import { createAndExecuteHTTPRequest } from '../common-functions/';
-import { returnHTTPPayload } from "../controllers/request-controller"
-import { populateHTTPCollection } from "../dao/dao-controllers/colls-functionality"
 
 /**
  * Creates the express router, with desired endpoints.
@@ -11,6 +8,15 @@ export function createAndReturnPSNRouter() {
     let router = express.Router();
 
     /** Functional Endpoints */
+
+    //Youtube return endpoint
+
+    //SQL return all results endpoint
+
+    //SQL Return ID Query
+
+    //SQL Search Term Endpoint
+
 
     /** Utility Endpoints */
 

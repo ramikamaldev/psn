@@ -9,7 +9,7 @@ export function returnYoutubeQueryPayload(endpointPayload) {
 
     let payloadHTTPFunction = (async function (resolve, reject) {
         try {
-            let httpEndpointParameters = await youtubeServiceFunctionality.getChannel(endpointPayload);
+            let httpEndpointParameters = await youtubeServiceFunctionality.getChannelIDs(endpointPayload);
             let result = await youtubeServiceFunctionality.returnPlayListItems(httpEndpointParameters, null);
             resolve(result);
         }
