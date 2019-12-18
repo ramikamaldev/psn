@@ -3,7 +3,7 @@ let { google } = require("googleapis");
 let youtubeService = google.youtube(
     {
         version: 'v3',
-        auth: "AIzaSyAoh5Q6zZ8II2Qcu2zJcU9cmtoHXB9EXvM"// specify your API key here
+        auth: "AIzaSyAsmKbjsSAXARfIZ9XO0RmvU4iLMnU3dCc "// specify your API key here
     })
 
 function testYoutube() {
