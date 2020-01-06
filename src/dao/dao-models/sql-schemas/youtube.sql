@@ -11,13 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `psndb` DEFAULT CHARACTER SET utf8 ;
+USE `psndb` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`videos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`videos` (
+CREATE TABLE IF NOT EXISTS `psndb`.`videos` (
   `id` INT NOT NULL,
   `title` VARCHAR(100) NULL,
   `date` DATETIME NULL,
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`channels`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`channels` (
+CREATE TABLE IF NOT EXISTS `psndb`.`channels` (
   `id` INT NOT NULL,
   `channel_name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))

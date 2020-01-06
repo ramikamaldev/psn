@@ -1,6 +1,7 @@
 import { google } from "googleapis";
 import { createAndReturnPromise } from "../../common-functions/utility-functions"
 import { resolve } from "dns";
+import * as lodash from "lodash";
 
 export class YoutubeServiceFunctionality {
 
@@ -35,8 +36,8 @@ export class YoutubeServiceFunctionality {
         return createAndReturnPromise(getChannelIDsFunction);
     }
 
-    public async getChannelPlaylists(playlistIDs: []) {
-        let playlistIDArr = [];
+        public async getChannelPlaylists(playlistIDs: []) {
+            let playlistIDArr = [];
         let youtubeGetChannelPromise = function (resolve, reject) {
             this.youtubeService.channels.list({
                 "part": "snippet,contentDetails",
@@ -53,15 +54,20 @@ export class YoutubeServiceFunctionality {
     };
     public returnPlayListItems(playlistID, pageToken?: string) {
         let newPageToken = null;
-        this.youtubeService.playlistItems.list({
+        let playlistitems = [];
+       this. youtubeService.playlistItems.list({
             "part": "snippet,contentDetails",
-            "maxResults": 50,
-            "pageToken": pageToken,
-            "playlistId": playlistID //"UUuTaETsuCOkJ0H_GAztWt0Q"
+            "maxResults": 3,
+            "playlistId": "UUuTaETsuCOkJ0H_GAztWt0Q"
         }).then(function (response) {
+            let variable = 'hello';
             // Handle the results here (response.result has the parsed body).
-            console.log("Response", response);
-            this.playlistItems.push(response.data.items);
+            //console.log("Response", response.data.items[0].snippet.title);
+            //not actually a callback, just a function passed in to do some work.
+            let playlistItems = lodash.filter(response.data.items, function (playlistItemData) {
+                return playlistItemData.snippet.title.match("Mitchelton|pro|matt stephens|5|Dubai stage|GCN");
+            })
+            playlistItems.push(response.data.items);
             newPageToken = response.pageToken;
             if (newPageToken) {
                 return this.returnPlaylistItems(playlistID, newPageToken);
@@ -74,7 +80,6 @@ export class YoutubeServiceFunctionality {
         })
     }
 }
-
 
 
 //syntax used on async/await function result. 
